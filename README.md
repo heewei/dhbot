@@ -12,6 +12,9 @@ Unit Classes:
 
 odometry.py - read encoder tick updates, calculate distance traveled per wheel before robot pose based on simple differential drive 
 
+Need to run:
+1. sudo pigpiod
+
 
 Yet to fix 
 1. licence and registration...
