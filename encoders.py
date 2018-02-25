@@ -70,3 +70,6 @@ class Encoders:
 	def callbackR(self,way):
 		self.countR += way
 		print("posR=",self.countR)
+
+	def readCounts(self):
+		return self.countL, self.countR

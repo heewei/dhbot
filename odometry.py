@@ -1,5 +1,6 @@
 import time
 from math import pi, cos, sin
+from encoders import Encoders
 
 def boundAngle(angle):
     return angle % (2 * pi)
@@ -22,6 +23,10 @@ class Odometer:
         self.encoders = encoders
         self.timeStep = timeStep
         
+        # Measured Parameters
+        self.track = 142.5 # width between wheels in millimeters
+        self.tickDist = .152505 # Distance travelled for per encoder click in millimeters
+
         self.speedL = 0
         self.speedR = 0
         self.phi = 0
@@ -40,6 +45,8 @@ class Odometer:
 
         distLeft = deltaCountLeft * self.tickDist
         distRight = deltaCountRight * self.tickDist
+
+        # Calculus for calculating Robot Pose based on Odometry 
         distCenter = (distLeft + distRight) / 2.
         self.dist += distCenter
         

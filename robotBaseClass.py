@@ -7,6 +7,8 @@ class Robot:
 	def __init__(self):
 		self.encoders = Encoders()
 		self.odometer = Odometer(self.encoders)
+		#add motors
+		#add motion controllers 
 	
 	#def addSensor(self):
 	
