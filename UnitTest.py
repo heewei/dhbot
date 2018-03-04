@@ -3,16 +3,19 @@ import pigpio #take ntoe pigpio uses BCM
 
 pi1 = pigpio.pi() #local gpio
 
-pi1.set_mode(14, pigpio.OUTPUT)
-pi1.set_mode(15, pigpio.OUTPUT)
+SERVO = 14
+PWM = 15
 
-pi1.set_PWM_frequency(24, 100)
-pi1.set_servo_pulsewidth(15, 500)
+pi1.set_mode(PWM, pigpio.OUTPUT)
+pi1.set_mode(SERVO, pigpio.OUTPUT)
 
-pi1.set_PWM_dutycycle(23, 20)
+pi1.set_PWM_frequency(PWM, 8000)
+pi1.set_servo_pulsewidth(SERVO, 500)
+
+pi1.set_PWM_dutycycle(PWM, 255/10)
 
 time.sleep(3)
-pi1.set_servo_pulsewidth(15, 2500)
+pi1.set_servo_pulsewidth(SERVO, 2500)
 
 #cleanup
 pi1.stop() 
