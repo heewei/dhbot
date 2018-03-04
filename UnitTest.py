@@ -9,10 +9,10 @@ PWM = 15
 pi1.set_mode(PWM, pigpio.OUTPUT)
 pi1.set_mode(SERVO, pigpio.OUTPUT)
 
-pi1.set_PWM_frequency(PWM, 8000)
+pi1.set_PWM_frequency(PWM, 1000)
 pi1.set_servo_pulsewidth(SERVO, 500)
 
-pi1.set_PWM_dutycycle(PWM, 255/1)
+pi1.set_PWM_dutycycle(PWM, 255/2)
 
 time.sleep(3)
 pi1.set_servo_pulsewidth(SERVO, 2500)
