@@ -16,10 +16,11 @@ try:
 
     finished = False
     
-except KeyboardInterrupt:
-    print "Keyboard Interrupt"
+except (KeyboardInterrupt, SystemExit):
+    print("Keyboard Interrupt")
     myRobot.stopRobot()
     myRobot.terminate()
+    raise 
 
 finally:
     myRobot.stopRobot()

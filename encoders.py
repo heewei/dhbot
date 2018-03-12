@@ -1,5 +1,36 @@
 #encoders
 
+from piGPIODecoder import Decoder
+import pigpio
+import time #import rotary_encoder
+
+class Encoders:
+	def __init__(self):
+		self.countL = 0
+		self.countR = 0
+		pi = pigpio.pi()
+		decoderL = Decoder(pi, 2, 4, self.callbackL)
+		decoderR = Decoder(pi, 17, 27, self.callbackR)
+		
+		#time.sleep(300)
+		
+		#decoderL.cancel()
+		#decoderR.cancel()
+		
+		#pi.stop()
+		
+	def callbackL(self,way):
+		self.countL += way
+		print("posL=",self.countL)
+		
+	def callbackR(self,way):
+		self.countR += way
+		print("posR=",self.countR)
+		
+	def readCounts(self):
+		return self.countL, self.countR
+
+
 """
 
 import RPi.GPIO as GPIO
@@ -43,33 +74,3 @@ class Encoders:
 		
 	
 """
-
-from piGPIODecoder import Decoder
-import pigpio
-import time #import rotary_encoder
-
-class Encoders:
-	def __init__(self):
-		self.countL = 0
-		self.countR = 0
-		pi = pigpio.pi()
-		decoderL = Decoder(pi, 2, 4, self.callbackL)
-		decoderR = Decoder(pi, 17, 27, self.callbackR)
-		
-		time.sleep(300)
-
-		decoderL.cancel()
-		decoderR.cancel()
-
-		pi.stop()
-	
-	def callbackL(self,way):
-		self.countL += way
-		print("posL=",self.countL)
-		
-	def callbackR(self,way):
-		self.countR += way
-		print("posR=",self.countR)
-
-	def readCounts(self):
-		return self.countL, self.countR

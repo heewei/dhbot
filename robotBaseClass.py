@@ -19,6 +19,8 @@ class Robot:
 		
 	def stopRobot(self):
 		#stop all additional functions such as pigpio
+		print("Starting Stop Procedures.")
+		self.motors.stop()
 		return
 		
 	def terminate(self):
