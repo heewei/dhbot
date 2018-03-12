@@ -17,7 +17,9 @@ class Robot:
 		
 	#def moveRobot(self, speed, heading):
 		
-	#def stopRobot(self):
+	def stopRobot(self):
+		#stop all additional functions such as pigpio
+		return
 		
-	#def terminate(self):
-		
+	def terminate(self):
+		return 

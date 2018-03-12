@@ -12,3 +12,15 @@ myRobot = robotBuilder.build()
 #set timestep
 tStep = 0.02
 
+try:
+
+    finished = False
+    
+except KeyboardInterrupt:
+    print "Keyboard Interrupt"
+    myRobot.stopRobot()
+    myRobot.terminate()
+
+finally:
+    myRobot.stopRobot()
+    myRobot.terminate()
