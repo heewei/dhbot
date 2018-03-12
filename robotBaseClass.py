@@ -1,13 +1,14 @@
 #Robot Base Class
 from encoders import Encoders
 from odometry import Odometer
+from motors import Motors
 
 class Robot:
 	
 	def __init__(self):
 		self.encoders = Encoders()
 		self.odometer = Odometer(self.encoders)
-		#add motors
+		self.motors = Motors() 
 		#add motion controllers 
 	
 	#def addSensor(self):
