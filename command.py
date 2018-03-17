@@ -1,3 +1,5 @@
+#http://www.anites.com/2013/12/usb-keyboard-on-raspberry-pi.html
+
 import sys,tty,terminos
 
 import sys
